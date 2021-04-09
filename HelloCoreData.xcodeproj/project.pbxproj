@@ -12,6 +12,7 @@
 		F4A936D126200C38009DB842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4A936D026200C38009DB842 /* Assets.xcassets */; };
 		F4A936D426200C38009DB842 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4A936D326200C38009DB842 /* Preview Assets.xcassets */; };
 		F4A937082620110E009DB842 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4A937062620110E009DB842 /* Model.xcdatamodeld */; };
+		F4A9370E2620122E009DB842 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A9370D2620122E009DB842 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		F4A936D326200C38009DB842 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4A936D526200C38009DB842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4A937072620110E009DB842 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		F4A9370D2620122E009DB842 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		F4A9370C2620111B009DB842 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F4A9370D2620122E009DB842 /* Movie.swift */,
 				F4A937062620110E009DB842 /* Model.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -159,6 +162,7 @@
 			files = (
 				F4A936CF26200C37009DB842 /* ContentView.swift in Sources */,
 				F4A936CD26200C37009DB842 /* HelloCoreDataApp.swift in Sources */,
+				F4A9370E2620122E009DB842 /* Movie.swift in Sources */,
 				F4A937082620110E009DB842 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
