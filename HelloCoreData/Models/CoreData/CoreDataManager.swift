@@ -29,4 +29,14 @@ struct CoreDataManager {
             }
         }
     }
+
+    func saveMovie(name: String) {
+        let movie = Movie(context: container.viewContext)
+        movie.name = name
+        do {
+            try container.viewContext.save()
+        } catch {
+            fatalError("Core Data Store failed to save movie: \(error.localizedDescription)")
+        }
+    }
 }
