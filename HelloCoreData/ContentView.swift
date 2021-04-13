@@ -18,6 +18,7 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Button("Save") {
                 manager.saveMovie(name: movieName)
+                movieName = ""
                 getMovies()
             }
             List(movies, id: \.self) { movie in
