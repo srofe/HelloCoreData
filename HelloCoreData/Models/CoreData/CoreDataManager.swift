@@ -39,4 +39,14 @@ struct CoreDataManager {
             fatalError("Core Data Store failed to save movie: \(error.localizedDescription)")
         }
     }
+
+    func getAllMovies() -> [Movie] {
+        let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
+        do {
+            let movies = try container.viewContext.fetch(fetchRequest)
+            return movies
+        } catch {
+            return []
+        }
+    }
 }
