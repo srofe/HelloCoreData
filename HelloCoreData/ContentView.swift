@@ -18,7 +18,7 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Button("Save") {
                 manager.saveMovie(name: movieName)
-                movies = manager.getAllMovies()
+                getMovies()
             }
             List(movies, id: \.self) { movie in
                 Text(movie.name)
@@ -27,8 +27,12 @@ struct ContentView: View {
         }
         .padding()
         .onAppear(perform: {
-            movies = manager.getAllMovies()
+            getMovies()
         })
+    }
+
+    private func getMovies() {
+        movies = manager.getAllMovies()
     }
 }
 
