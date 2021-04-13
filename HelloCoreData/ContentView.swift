@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     let manager: CoreDataManager
     @State private var movieName: String = ""
+    @State private var movies: [Movie] = [Movie]()
 
     var body: some View {
         VStack {
@@ -17,11 +18,17 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Button("Save") {
                 manager.saveMovie(name: movieName)
-                print("Movie name: \(movieName)")
+                movies = manager.getAllMovies()
+            }
+            List(movies, id: \.self) { movie in
+                Text(movie.name)
             }
             Spacer()
         }
         .padding()
+        .onAppear(perform: {
+            movies = manager.getAllMovies()
+        })
     }
 }
 
