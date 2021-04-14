@@ -14,6 +14,9 @@ struct CoreDataManager {
         let coreDataManager = CoreDataManager(inMemory: true)
         return coreDataManager
     }()
+    public var context: NSManagedObjectContext {
+        container.viewContext
+    }
     private let container: NSPersistentContainer
 
     private init(inMemory: Bool = false) {
