@@ -40,6 +40,16 @@ struct CoreDataManager {
         }
     }
 
+    func delete(movie: Movie) {
+        container.viewContext.delete(movie)
+        do {
+            try container.viewContext.save()
+        } catch {
+            container.viewContext.rollback()
+            fatalError("Core Data Store failed to save context during delete: \(error.localizedDescription)")
+        }
+    }
+
     func getAllMovies() -> [Movie] {
         let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
         do {
