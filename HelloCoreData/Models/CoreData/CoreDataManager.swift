@@ -33,7 +33,7 @@ struct CoreDataManager {
         }
     }
 
-    func saveMovie(name: String) {
+    func save(name: String) {
         let movie = Movie(context: container.viewContext)
         movie.name = name
         do {
