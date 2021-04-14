@@ -16,7 +16,14 @@ struct MovieDetailView: View {
             TextField(movie.name, text: $movieName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Button("Update") {
+                if !movieName.isEmpty {
+                    movie.name = movieName
+                    CoreDataManager.inMemory.updateMovie()
+                }
             }
+        }
+        .onAppear {
+            movieName = movie.name
         }
         .padding()
     }
