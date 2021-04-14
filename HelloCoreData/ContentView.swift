@@ -21,8 +21,17 @@ struct ContentView: View {
                 movieName = ""
                 getMovies()
             }
-            List(movies, id: \.self) { movie in
-                Text(movie.name)
+            List {
+                ForEach(movies, id: \.self) { movie in
+                    Text(movie.name)
+                }
+                .onDelete { indexSet in
+                    indexSet.forEach { index in
+                        let movie = movies[index]
+                        manager.delete(movie: movie)
+                        getMovies()
+                    }
+                }
             }
             Spacer()
         }
