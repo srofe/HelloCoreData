@@ -48,7 +48,7 @@ struct ContentView: View {
     }
 
     private func getMovies() {
-        movies = manager.getAllMovies()
+        movies = manager.movies
     }
 }
 

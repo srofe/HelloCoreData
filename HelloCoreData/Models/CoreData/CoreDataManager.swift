@@ -33,6 +33,16 @@ struct CoreDataManager {
         }
     }
 
+    var movies: [Movie] {
+        let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
+        do {
+            let movies = try container.viewContext.fetch(fetchRequest)
+            return movies
+        } catch {
+            return []
+        }
+    }
+
     func save(name: String) {
         let movie = Movie(context: container.viewContext)
         movie.name = name
@@ -59,16 +69,6 @@ struct CoreDataManager {
         } catch {
             container.viewContext.rollback()
             fatalError("Core Data Store failed to save context during update: \(error.localizedDescription)")
-        }
-    }
-
-    func getAllMovies() -> [Movie] {
-        let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
-        do {
-            let movies = try container.viewContext.fetch(fetchRequest)
-            return movies
-        } catch {
-            return []
         }
     }
 }
