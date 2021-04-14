@@ -14,6 +14,9 @@ struct CoreDataManager {
         let coreDataManager = CoreDataManager(inMemory: true)
         return coreDataManager
     }()
+    public var context: NSManagedObjectContext {
+        container.viewContext
+    }
     private let container: NSPersistentContainer
 
     private init(inMemory: Bool = false) {
@@ -47,6 +50,15 @@ struct CoreDataManager {
         } catch {
             container.viewContext.rollback()
             fatalError("Core Data Store failed to save context during delete: \(error.localizedDescription)")
+        }
+    }
+
+    func updateMovie() {
+        do {
+            try container.viewContext.save()
+        } catch {
+            container.viewContext.rollback()
+            fatalError("Core Data Store failed to save context during update: \(error.localizedDescription)")
         }
     }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F45518782626CCBA003D3B8D /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45518772626CCBA003D3B8D /* MovieDetailView.swift */; };
 		F4A936CD26200C37009DB842 /* HelloCoreDataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A936CC26200C37009DB842 /* HelloCoreDataApp.swift */; };
 		F4A936CF26200C37009DB842 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A936CE26200C37009DB842 /* ContentView.swift */; };
 		F4A936D126200C38009DB842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4A936D026200C38009DB842 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F45518772626CCBA003D3B8D /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		F4A936C926200C37009DB842 /* HelloCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A936CC26200C37009DB842 /* HelloCoreDataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloCoreDataApp.swift; sourceTree = "<group>"; };
 		F4A936CE26200C37009DB842 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				F4A9370B26201113009DB842 /* Models */,
 				F4A936CC26200C37009DB842 /* HelloCoreDataApp.swift */,
 				F4A936CE26200C37009DB842 /* ContentView.swift */,
+				F45518772626CCBA003D3B8D /* MovieDetailView.swift */,
 				F4A936D026200C38009DB842 /* Assets.xcassets */,
 				F4A936D526200C38009DB842 /* Info.plist */,
 				F4A936D226200C38009DB842 /* Preview Content */,
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F45518782626CCBA003D3B8D /* MovieDetailView.swift in Sources */,
 				F4A936CF26200C37009DB842 /* ContentView.swift in Sources */,
 				F4A936CD26200C37009DB842 /* HelloCoreDataApp.swift in Sources */,
 				F4A9370E2620122E009DB842 /* Movie.swift in Sources */,
