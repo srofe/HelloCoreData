@@ -13,32 +13,38 @@ struct ContentView: View {
     @State private var movies: [Movie] = [Movie]()
 
     var body: some View {
-        VStack {
-            TextField("Enter movie name", text: $movieName)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            Button("Save") {
-                manager.saveMovie(name: movieName)
-                movieName = ""
-                getMovies()
-            }
-            List {
-                ForEach(movies, id: \.self) { movie in
-                    Text(movie.name)
+        NavigationView {
+            VStack {
+                TextField("Enter movie name", text: $movieName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Button("Save") {
+                    manager.saveMovie(name: movieName)
+                    movieName = ""
+                    getMovies()
                 }
-                .onDelete { indexSet in
-                    indexSet.forEach { index in
-                        let movie = movies[index]
-                        manager.delete(movie: movie)
-                        getMovies()
+                List {
+                    ForEach(movies, id: \.self) { movie in
+                        NavigationLink(destination: MovieDetailView(movie: movie)) {
+                            Text(movie.name)
+                        }
+                    }
+                    .onDelete { indexSet in
+                        indexSet.forEach { index in
+                            let movie = movies[index]
+                            manager.delete(movie: movie)
+                            getMovies()
+                        }
                     }
                 }
+                .listStyle(PlainListStyle())
+                .navigationTitle("Movies")
+                Spacer()
             }
-            Spacer()
+            .padding()
+            .onAppear(perform: {
+                getMovies()
+            })
         }
-        .padding()
-        .onAppear(perform: {
-            getMovies()
-        })
     }
 
     private func getMovies() {
