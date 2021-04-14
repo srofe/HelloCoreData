@@ -50,6 +50,15 @@ struct CoreDataManager {
         }
     }
 
+    func updateMovie() {
+        do {
+            try container.viewContext.save()
+        } catch {
+            container.viewContext.rollback()
+            fatalError("Core Data Store failed to save context during update: \(error.localizedDescription)")
+        }
+    }
+
     func getAllMovies() -> [Movie] {
         let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
         do {
