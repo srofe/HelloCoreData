@@ -38,8 +38,7 @@ struct ContentView: View {
                     }
                 }
                 .listStyle(PlainListStyle())
-                .navigationTitle("Movies")
-                .accentColor(needsRefresh ? .accentColor : .accentColor)
+                .navigationTitle(needsRefresh ? "Movies" : "Movies")
                 Spacer()
             }
             .padding()
