@@ -11,6 +11,7 @@ struct ContentView: View {
     let manager: CoreDataManager
     @State private var movieName: String = ""
     @State private var movies: [Movie] = [Movie]()
+    @State private var needsRefresh: Bool = false
 
     var body: some View {
         NavigationView {
@@ -24,7 +25,7 @@ struct ContentView: View {
                 }
                 List {
                     ForEach(movies, id: \.self) { movie in
-                        NavigationLink(destination: MovieDetailView(movie: movie)) {
+                        NavigationLink(destination: MovieDetailView(movie: movie, refresh: $needsRefresh)) {
                             Text(movie.name)
                         }
                     }
@@ -38,6 +39,7 @@ struct ContentView: View {
                 }
                 .listStyle(PlainListStyle())
                 .navigationTitle("Movies")
+                .accentColor(needsRefresh ? .accentColor : .accentColor)
                 Spacer()
             }
             .padding()
