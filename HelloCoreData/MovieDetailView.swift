@@ -10,6 +10,7 @@ import SwiftUI
 struct MovieDetailView: View {
     let movie: Movie
     @State private var movieName: String = ""
+    @Binding var refresh: Bool
 
     var body: some View {
         VStack {
@@ -19,6 +20,7 @@ struct MovieDetailView: View {
                 if !movieName.isEmpty {
                     movie.name = movieName
                     CoreDataManager.inMemory.updateMovie()
+                    refresh = true
                 }
             }
         }
@@ -33,6 +35,6 @@ struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let movie = Movie(context: CoreDataManager.inMemory.context)
         movie.name = "Lord of the Rings"
-        return MovieDetailView(movie: movie)
+        return MovieDetailView(movie: movie, refresh: .constant(false))
     }
 }
