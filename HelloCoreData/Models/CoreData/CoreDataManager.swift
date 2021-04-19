@@ -34,9 +34,8 @@ struct CoreDataManager {
     }
 
     var movies: [Movie] {
-        let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
         do {
-            let movies = try container.viewContext.fetch(fetchRequest)
+            let movies = try container.viewContext.fetch(Movie.fetchRequest)
             return movies
         } catch {
             return []
